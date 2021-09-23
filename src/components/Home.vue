@@ -6,8 +6,8 @@
         <el-main>
             Main
 
-            <!-- <h1>{{ msg }}</h1>
-            <img alt="Vue logo" src="../assets/logo.png" />
+            <h1>{{ msg }}</h1>
+            <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
             <p>
                 Recommended IDE setup:
                 <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
@@ -29,19 +29,31 @@
             <p>
                 Edit
                 <code>components/HelloWorld.vue</code> to test hot module replacement.
-            </p> -->
+            </p>
         </el-main>
       </el-container>
     </el-container>
 </template>
-<script lang="ts">
-import { ref } from 'vue'
-defineProps<{ msg: string }>()
-setup(props) { 
-    const count = ref(0)
+<script  lang="ts">
+import { onMounted, ref,toRefs } from 'vue'
+export default {
+    props: {
+        msg: String
+    },
+    setup(props,context) {
+        const { msg } = toRefs(props)
+        const count = ref(0)
+
+        // onMounted(() => {
+        //     console.log('onMounted')
+        // }),
+
+        return {
+            msg,
+            count
+        }
+    }
 }
-
-
 </script>
 <style scoped>
 a {
