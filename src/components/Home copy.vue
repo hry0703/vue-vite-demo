@@ -1,7 +1,7 @@
 <template>
     <el-container>
         <el-aside width="200px">
-            <Aside />
+            <Aside :menu="['第一','第二']"></Aside>
         </el-aside>
         <el-container>
             <el-header>Header</el-header>
@@ -36,30 +36,40 @@
         </el-container>
     </el-container>
 </template>
-<script setup lang="ts" >
-import { onMounted, ref,toRefs,onUpdated,onUnmounted } from 'vue'
+<script  lang="ts" >
+import {defineComponent, onMounted, ref,toRefs,onUpdated,onUnmounted } from 'vue'
 import Aside from './Aside.vue'
-const props = defineProps({
-  msg: String
+export default defineComponent({
+    props: {
+        msg: String
+    },
+    components:{
+        Aside
+    },
+    setup(props,context) {
+        const { msg } = toRefs(props)
+        const count = ref(0)
+
+        onMounted(() => {
+        console.log('mounted!')
+        })
+
+
+        onUpdated(() => {
+        console.log('updated!')
+        })
+
+
+        onUnmounted(() => {
+        console.log('unmounted!')
+        })
+
+        return {
+            msg,
+            count
+        }
+    }
 })
-
-const count = ref(0)
-
-onMounted(() => {
-console.log('mounted!')
-})
-
-
-onUpdated(() => {
-console.log('updated!')
-})
-
-
-onUnmounted(() => {
-console.log('unmounted!')
-})
-    
-
 </script>
 <style scoped>
 a {

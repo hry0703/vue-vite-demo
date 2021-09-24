@@ -1,10 +1,13 @@
-<script setup lang="ts">
-import Home from './components/Home.vue'
-</script>
 
 <template>
   <Home msg="Hello Vue 3 + TypeScript + Vite" />
 </template>
+
+
+<script setup lang="ts">
+import { onMounted, ref,toRefs,onUpdated,onUnmounted } from 'vue'
+import Home from './components/Home.vue'
+</script>
 
 <style>
 #app {
