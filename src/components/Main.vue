@@ -8,9 +8,9 @@
 
 <script setup lang="ts">
 import { onMounted, ref,toRefs,onUpdated,onUnmounted } from 'vue'
-const props = defineProps({
-  count: Number
-})
+const props = defineProps<{
+  count: number
+}>()
 const emit = defineEmits(['countChange'])
 
 const change= function(){

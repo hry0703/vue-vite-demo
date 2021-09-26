@@ -10,9 +10,9 @@
 
 <script setup lang="ts">
 import { onMounted, ref,toRefs,onUpdated,onUnmounted } from 'vue'
-const props = defineProps({
-  menu: Array
-})
+const props = defineProps<{
+  menu:string[] 
+}>()
 
 </script>
 

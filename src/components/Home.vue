@@ -9,19 +9,28 @@
                 <Main :count="count" @countChange="countChange"></Main>
                 <h1>{{ msg }}</h1>
                 <button type="button" @click="count++">count is: {{ count }}</button>
+                plusCount: {{plusCount}}
             </el-main>
         </el-container>
     </el-container>
 </template>
 <script setup lang="ts" >
-import { onMounted, ref,toRefs,onUpdated,onUnmounted } from 'vue'
+import { onMounted, ref,toRefs,onUpdated,onUnmounted,computed,watch } from 'vue'
 import Aside from './Aside.vue'
 import Main from './Main.vue'
-const props = defineProps({
-  msg: String
-})
+
+const plusCount = computed(() => count.value + 1)
+const props = defineProps<{
+  msg: number
+}>()
 
 let count = ref(0)
+
+watch(count, (count, prevCount) => {
+  console.log('count',count);
+  console.log('prevCount',prevCount);
+})
+
 
 
 const countChange = function(val:number){
