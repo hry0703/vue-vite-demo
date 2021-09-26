@@ -1,37 +1,14 @@
 <template>
     <el-container>
         <el-aside width="200px">
-            <Aside />
+            <Aside :menu="['12','23','34']" />
         </el-aside>
         <el-container>
             <el-header>Header</el-header>
             <el-main>
-                Main
-
+                <Main :count="count" @countChange="countChange"></Main>
                 <h1>{{ msg }}</h1>
-                <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
-                <p>
-                    Recommended IDE setup:
-                    <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-                    +
-                    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-                </p>
-
-                <p>See <code>README.md</code> for more information.</p>
-
-                <p>
-                    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-                    Vite Docs
-                    </a>
-                    |
-                    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-                </p>
-
                 <button type="button" @click="count++">count is: {{ count }}</button>
-                <p>
-                    Edit
-                    <code>components/HelloWorld.vue</code> to test hot module replacement.
-                </p>
             </el-main>
         </el-container>
     </el-container>
@@ -39,24 +16,31 @@
 <script setup lang="ts" >
 import { onMounted, ref,toRefs,onUpdated,onUnmounted } from 'vue'
 import Aside from './Aside.vue'
+import Main from './Main.vue'
 const props = defineProps({
   msg: String
 })
 
-const count = ref(0)
+let count = ref(0)
+
+
+const countChange = function(val:number){
+    console.log(val,'---');
+    count.value = val
+}
 
 onMounted(() => {
-console.log('mounted!')
+    console.log('mounted!')
 })
 
 
 onUpdated(() => {
-console.log('updated!')
+    console.log('updated!')
 })
 
 
 onUnmounted(() => {
-console.log('unmounted!')
+    console.log('unmounted!')
 })
     
 
