@@ -21,7 +21,7 @@ import Main from './Main.vue'
 
 const plusCount = computed(() => count.value + 1)
 const props = defineProps<{
-  msg: number
+  msg: string
 }>()
 
 let count = ref(0)
