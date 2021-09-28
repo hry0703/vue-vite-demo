@@ -9,3 +9,5 @@ yarn create vite my-vue-app
 spawn D:\code\demo\vue-vite-app\node_modules\esbuild\esbuild.exe ENOEN报错
 
 node  D:/code/demo/vue-vite-app/node_modules/esbuild/install.js
+
+## 配置 git hooks

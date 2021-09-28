@@ -38,7 +38,7 @@
 </template>
 <script  lang="ts" >
 import {defineComponent, onMounted, ref,toRefs,onUpdated,onUnmounted } from 'vue'
-import Aside from './Aside.vue'
+import Aside from '../Aside.vue'
 export default defineComponent({
     props: {
         msg: String
